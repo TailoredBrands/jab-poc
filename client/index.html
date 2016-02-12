@@ -12,13 +12,17 @@
   </head>
   <body>
     <div class="grid-frame vertical">
+      
       <div class="grid-content shrink" style="padding: 0;">
-        <ul class="primary condense menu-bar">
-          <li><a><strong>Foundation for Apps</strong></a></li>
-        </ul>
+        <div ng-include="" src="'partials/nav.html'"></div>
       </div>
-      <div ui-view class="grid-content">
+
+      <div class="grid-content shrink" style="padding: 0;">
+        <div ng-include="" src="'partials/nav-jab.html'"></div>
       </div>
+      
+      <div ui-view class="grid-content"></div>
+
     </div>
   </body>
 </html>

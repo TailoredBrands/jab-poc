@@ -1,0 +1,153 @@
+---
+name: checkout
+url: /checkout
+animationIn: fadeIn
+controller: CheckoutController
+
+---
+
+<div class="grid-container">
+
+
+<div class="grid-block">
+
+  <!-- Sign in -->
+  <div class="fadeIn fadeOut grid-content large-12 medium-12 small-12">
+    <div class="task-card" ng-class="[checkout.color, checkout.status]">
+      <div class="card-divider">
+        <div class="grid-block">
+          <p> 1. Sign In</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+
+        <!-- View -->
+        <div ng-show="editSignInMode == false">
+          <p><label>Email:</label>{{checkout.email}}</p>
+          <p><label>Password:</label>{{checkout.password}}</p>
+        </div>
+
+        <!-- Edit -->
+        <div ng-show="editSignInMode == true">
+          <form name="editSignInFields" class="taskForm">
+          <label>Email:<input ng-model="checkout.email" type="text"></label>
+          <label>Password:<textarea ng-model="checkout.password" placeholder="Task Description"></textarea></label>
+          </form>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_signin" ng-model="editSignInMode" ng-change="editSignInMode || UpdateSignInFields()">
+          <label for="edit_toggle_signin"></label>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    </div>
+  </div>
+  <!--/Sign in -->
+
+
+  <!-- Shipping -->
+  <div class="fadeIn fadeOut grid-content large-12 medium-12 small-12">
+    <div class="task-card" ng-class="[checkout.color, checkout.status]">
+      <div class="card-divider">
+        <div class="grid-block">
+          <p>2. Shipping</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+
+        <!-- View -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false)">
+           <img src="/assets/img/shipping-view.png"/>
+        </div>
+
+        <!-- Edit -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == true)">
+           <img src="/assets/img/shipping-edit.png"/>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_shipping" ng-model="editShippingMode" ng-change="editShippingMode || UpdateShippingFields()">
+          <label for="edit_toggle_shipping"></label>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    </div>
+  </div>
+  <!--/Shipping -->
+
+  <!-- Billing -->
+  <div class="fadeIn fadeOut grid-content large-12 medium-12 small-12">
+    <div class="task-card" ng-class="[checkout.color, checkout.status]">
+      <div class="card-divider">
+        <div class="grid-block">
+          <p>3. Billing</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+
+        <!-- View -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false) && (editBillingMode == false)">
+          <img src="/assets/img/billing-view.png"/>
+        </div>
+
+        <!-- Edit -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false) && (editBillingMode == true)">
+          <img src="/assets/img/billing-edit.png"/>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_billing" ng-model="editBillingMode" ng-change="editBillingMode || UpdateBillingFields()">
+          <label for="edit_toggle_billing"></label>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    </div>
+  </div>
+  <!--/Billing -->
+
+  <!-- Order Review -->
+  <div class="fadeIn fadeOut grid-content large-12 medium-12 small-12">
+    <div class="task-card" ng-class="[checkout.color, checkout.status]">
+      <div class="card-divider">
+        <div class="grid-block">
+          <p>4. Order Review</p>
+        </div>
+      </div>
+
+      <div class="card-section">
+
+        <!-- View -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false) && (editBillingMode == false) && (editOrderReviewMode == false)">
+          <p><label>Billing Method:</label>{{checkout.billingMethod}}</p>
+          <p><label>Billing Address:</label>{{checkout.billingAddress}}</p>
+        </div>
+
+        <!-- Edit -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false) && (editBillingMode == false) && (editOrderReviewMode == true)">
+          <img src="/assets/img/orderReview-view.png"/>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_billing" ng-model="editOrderReviewMode" ng-change="editOrderReviewMode || UpdateOrderReviewFields()">
+          <label for="edit_toggle_billing"></label>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+    </div>
+  </div>
+  <!--/Order Review -->
+
+</div>
+
+

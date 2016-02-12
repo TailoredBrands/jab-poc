@@ -65,6 +65,10 @@
 //   utilities: true,
 // ); 
 
+.task-card {
+  -webkit-transform: translate3d(0,0,0);
+}
+
 // 2. Global Styles
 // - - - - - - - - - - - - - - -
 
@@ -90,31 +94,31 @@
 // $font-weight-bold: bold;
 
 // We use these to control various global styles
-// $body-background: #fff;
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-background: #ecf0f1;
+$body-font-color: #2c3e50;
+$body-font-family: Roboto, "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 // $body-antialiased: true;
 
 // Application Colors
-// $primary-color: #00558b;
-// $secondary-color: #f1f1f1;
-// $alert-color: #F04124;
+$primary-color: #3498db;
+$secondary-color: #34495e;
+$alert-color: #9b59b6;
 // $info-color: #A0D3E8;
-// $success-color: #43AC6A;
-// $warning-color: #F08A24;
-// $dark-color: #232323;
-// $gray: #dfdfdf;
-// $gray-dark: darken($gray, 8);
-// $gray-light: lighten($gray, 8);
+$success-color: #1abc9c;
+$warning-color: #c0392b;
+$dark-color: #000000; //#34495e;
+$gray: #dfdfdf;
+$gray-dark: darken($gray, 8);
+$gray-light: lighten($gray, 8);
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 4px;
+$global-radius: 0;
 // $global-rounded: 1000px;
 
 // We use this for default spacing
-// $global-padding: 1rem;
+$global-padding: 1rem;
 // $global-spacing: rem-calc(15); 
 
 // 3. Breakpoints
@@ -139,7 +143,7 @@
 // $header-font-family: $body-font-family;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: $font-weight-normal;
-// $header-font-color: #222;
+$header-font-color: $body-font-color;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;
@@ -544,9 +548,9 @@
 
 // $panel-size-horizontal: 300px;
 // $panel-size-vertical: 300px;
-// $panel-padding: 0;
+$panel-padding: 1em 3em 1em 1em;
 
-// $panel-background: #fff;
+$panel-background: $body-background;
 // $panel-shadow: 3px 0 10px rgba(black, 0.25);
 // $panel-animation-speed: 0.25s; 
 
@@ -601,4 +605,12 @@
 //   left: 'left',
 //   right: 'right',
 //   title: 'title',
-// ); 
+// );
+
+@import "global";
+@import "components/iconic";
+@import "components/button";
+@import "components/card";
+@import "helpers/mixins";
+
+@import "custom";
