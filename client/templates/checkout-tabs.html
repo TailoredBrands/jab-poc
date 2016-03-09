@@ -1,0 +1,63 @@
+---
+name: checkout-tabs
+url: /checkout-tabs
+animationIn: fadeIn
+controller: CheckoutTabsController
+
+---
+
+
+<div zf-tabs="">
+  <div zf-tab="" title="Billing and Shipping">
+        <!-- View -->
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false) && (editBillingMode == false)">
+          <img src="/assets/img/billing-view.png"/>
+        </div>
+        <div ng-show="(editSignInMode == false) && (editShippingMode == false)">
+           <img src="/assets/img/shipping-view.png"/>
+        </div>
+
+        <!-- Edit -->
+        <div ng-show="true">
+          <img src="/assets/img/billing-edit.png"/>
+          <div class="clearfix"></div>
+        </div>
+        <div ng-show="true">
+           <img src="/assets/img/shipping-edit.png"/>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_billing" ng-model="editBillingMode" ng-change="editBillingMode || UpdateBillingFields()">
+          <label for="edit_toggle_billing"></label>
+        </div>
+        <div class="clearfix"></div>
+
+        <a class="button" href="#">Payment</a>
+  </div>
+  <div zf-tab="" title="Payment">
+
+        <!-- View -->
+        <div ng-show="true">
+          <p><label>Billing Method:</label>{{checkout.billingMethod}}</p>
+          <p><label>Billing Address:</label>{{checkout.billingAddress}}</p>
+        </div>
+
+  </div>
+  <div zf-tab="" title="Order Receipt">
+        <!-- Edit -->
+        <div ng-show="true">
+          <img src="/assets/img/orderReview-view.png"/>
+        </div>
+
+        <div class="switch float-right">
+          <input type="checkbox" id="edit_toggle_billing" ng-model="editOrderReviewMode" ng-change="editOrderReviewMode || UpdateOrderReviewFields()">
+          <label for="edit_toggle_billing"></label>
+        </div>
+        <div class="clearfix"></div>
+        </div>
+</div>
+
+
+
+

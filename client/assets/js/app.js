@@ -9,6 +9,7 @@
     'foundation',
     'foundation.dynamicRouting',
     'foundation.dynamicRouting.animations'
+
   ])
     .config(config)
     .run(run)
@@ -36,9 +37,12 @@
 
   angular.module('application').controller('TasksController', TasksController);
   angular.module('application').controller('CheckoutController', CheckoutController);
+  angular.module('application').controller('CheckoutTabsController', CheckoutController);
+
 
   TasksController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
   CheckoutController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
+  CheckoutTabsController.$inject = ['$scope', '$stateParams', '$state', '$controller'];
 
 
   // Start TasksController 
@@ -250,10 +254,15 @@
     $scope.UpdateOrderReviewFields = function(){
       localStorage.setItem("saved_tasks", JSON.stringify($scope.checkout));
     }
-
-
   }
   // END CheckoutController
+
+  // Start CheckoutTabsController
+  function CheckoutController($scope, $stateParams, $state, $controller) {
+    angular.extend(this, $controller('DefaultController', {$scope: $scope, $stateParams: $stateParams, $state: $state}));
+    
+  }
+  // END CheckoutTabsController
 
 
   // END CUSTOM APP CODE
